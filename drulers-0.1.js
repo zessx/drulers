@@ -11,13 +11,13 @@
 		linesH.empty();
 		linesV.empty();
 
-		var w = $(window).width();
-		var h = $(window).height();
+		var w = $(document).width();
+		var h = $(document).height();
 		for(var i = 10; i <= w; i+=10) {
-			linesV.append('<div class="dr-line" style="left:'+i+'px"></div>');
+			linesV.append('<div class="dr-line" style="left:'+i+'px;height:'+h+'px"></div>');
 		}
 		for(var i = 10; i <= h; i+=10) {
-			linesH.append('<div class="dr-line" style="top:'+i+'px"></div>');
+			linesH.append('<div class="dr-line" style="top:'+i+'px;width:'+w+'px"></div>');
 		}
 	}
 
@@ -31,19 +31,12 @@
 		rulers.find('#dr-lines-h').toggle();
 	});
 	$(window).on('resize', refreshGrid);
+	$(document).on('scroll', refreshGrid);
 
 	var css = '<style type="text/css">\
-#dr-wrapper {\
-	position: fixed;\
-	top: 0;\
-	left: 0;\
-	width: 100%;\
-	height: 100%;\
-	overflow: hidden;\
-}\
 #dr-wrapper .dr-ruler {\
 	display: block;\
-	position: absolute;\
+	position: fixed;\
 	top: 0;\
 	left: 0;\
 	width: 100%;\
@@ -65,7 +58,7 @@
 }\
 #dr-wrapper #dr-corner {\
 	display: block;\
-	position: absolute;\
+	position: fixed;\
 	top: 0;\
 	left: 0;\
 	width: 10px;\
@@ -82,8 +75,8 @@
 	position: absolute;\
 	left: 0;\
 	top: 0;\
-	width: 100%;\
-	height: 100%;\
+	width: 1px;\
+	height: 1px;\
 	background: rgba(0, 0, 0, 0.1);\
 }\
 #dr-wrapper .dr-line:nth-child(10n) {\
@@ -91,20 +84,8 @@
 }\
 #dr-wrapper #dr-lines-h,\
 #dr-wrapper #dr-lines-v {\
-	display: block;\
-	position: absolute;\
-	top: 0;\
-	left: 0;\
-	width: 100%;\
-	height: 100%;\
 	display: none;\
 	z-index: 9998;\
-}\
-#dr-wrapper #dr-lines-h .dr-line {\
-	height: 1px;\
-}\
-#dr-wrapper #dr-lines-v .dr-line {\
-	width: 1px;\
 }\
 </style>';
 
