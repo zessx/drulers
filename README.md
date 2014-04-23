@@ -1,8 +1,3 @@
-drulers
-=======
-
-Debug rulers for integrators
-
 ![drulers](drulers.jpg)
 
 [drulers](https://github.com/zessx/drulers) is debug rulers tool for integrators.
