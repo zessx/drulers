@@ -86,6 +86,9 @@
 #dr-wrapper #dr-lines-v {\
 	display: none;\
 	z-index: 9998;\
+	position: fixed;\
+	top: 0px;\
+	left: 0px;\
 }\
 </style>';
 
